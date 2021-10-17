@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using WebPets.Models;
 
 namespace Data
@@ -8,5 +9,6 @@ namespace Data
         public DbSet<Pets> Pets { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
         optionsBuilder.UseSqlite(connectionString: "DataSource=petsdb.db;Cache=Shared");
+
     }
 }

@@ -22,7 +22,6 @@ namespace WebPets
             services.AddControllersWithViews();
             services.AddControllers();
             services.AddDbContext<AppDbContext>();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

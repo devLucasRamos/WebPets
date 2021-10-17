@@ -12,7 +12,7 @@ namespace WebPets.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext Context;
 
-        public HomeController(ILogger<HomeController> logger,AppDbContext context)
+        public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             Context = context;
             _logger = logger;
@@ -20,8 +20,22 @@ namespace WebPets.Controllers
 
         public IActionResult Index()
         {
-            var pets = Context.Pets.ToList();
-            return View(pets);
+            var list = Context.Pets.ToList();
+            return View(list);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pets pets)
+        {
+            Context.Pets.Add(pets);
+            Context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Privacy()
