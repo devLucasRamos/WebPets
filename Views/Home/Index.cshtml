@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebPets.Models.Pets>
+
+<h1>Banco de dados do Petshop</h1>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DonoNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoDePet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDeRegistro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var pets in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => pets.DonoNome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => pets.Nome)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => pets.TipoDePet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => pets.Idade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => pets.Cor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => pets.DataDeRegistro)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
