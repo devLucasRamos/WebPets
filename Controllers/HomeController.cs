@@ -74,11 +74,9 @@ namespace WebPets.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
-        public void Update(int id)
+        public void Update(Pets pet)
         {
-            var pet = Context.Pets.Find(id);
-            Context.Pets.Update(pet);
+            Context.Update(pet);
             Context.SaveChanges();
         }
 
@@ -100,9 +98,9 @@ namespace WebPets.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(Pets pet)
         {
-            Update(id);
+            Update(pet);
             return RedirectToAction(nameof(Index));
         }
 
