@@ -1,8 +1,10 @@
 ﻿using Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using ViewModel;
 using WebPets.Models;
 
 namespace WebPets.Controllers
@@ -38,8 +40,8 @@ namespace WebPets.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-       public Pets GetById(int id) => Context.Pets.FirstOrDefault(x => x.Id == id);
-        
+        public Pets GetById(int id) => Context.Pets.FirstOrDefault(x => x.Id == id);
+
         public void Remove(int id)
         {
             var pet = Context.Pets.Find(id);
@@ -50,7 +52,7 @@ namespace WebPets.Controllers
         //get
         public IActionResult Delete(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -63,6 +65,7 @@ namespace WebPets.Controllers
 
             return View(pet);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
@@ -70,6 +73,39 @@ namespace WebPets.Controllers
             Remove(id);
             return RedirectToAction(nameof(Index));
         }
+
+
+        public void Update(int id)
+        {
+            var pet = Context.Pets.Find(id);
+            Context.Pets.Update(pet);
+            Context.SaveChanges();
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var pet = GetById(id.Value);
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            return View(pet);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id)
+        {
+            Update(id);
+            return RedirectToAction(nameof(Index));
+        }
+
 
         public IActionResult Privacy()
         {

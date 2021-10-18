@@ -68,3 +68,4 @@ C:\Users\User\source\repos\WebPets\WebPets\obj\Debug\net5.0\WebPets.dll
 C:\Users\User\source\repos\WebPets\WebPets\obj\Debug\net5.0\ref\WebPets.dll
 C:\Users\User\source\repos\WebPets\WebPets\obj\Debug\net5.0\WebPets.pdb
 C:\Users\User\source\repos\WebPets\WebPets\obj\Debug\net5.0\WebPets.genruntimeconfig.cache
+C:\Users\User\source\repos\WebPets\WebPets\obj\Debug\net5.0\Razor\Views\Home\Edit.cshtml.g.cs

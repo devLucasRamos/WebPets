@@ -10,5 +10,14 @@ namespace ViewModel
         public string TipoDePet { get; set; }
         public int Idade { get; set; }
         public string Cor { get; set; }
+
+        public PetsViewModel(string donoNome, string nome, string tipoDePet, int idade, string cor)
+        {
+            DonoNome = donoNome;
+            Nome = nome;
+            TipoDePet = tipoDePet;
+            Idade = idade;
+            Cor = cor;
+        }
     }
 }
