@@ -38,10 +38,44 @@ namespace WebPets.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+       public Pets GetById(int id) => Context.Pets.FirstOrDefault(x => x.Id == id);
+        
+        public void Remove(int id)
+        {
+            var pet = Context.Pets.Find(id);
+            Context.Pets.Remove(pet);
+            Context.SaveChanges();
+        }
+
+        //get
+        public IActionResult Delete(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var pet = GetById(id.Value);
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            return View(pet);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            Remove(id);
+            return RedirectToAction(nameof(Index));
+        }
+
         public IActionResult Privacy()
         {
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

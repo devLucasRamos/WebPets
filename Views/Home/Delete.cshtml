@@ -1,0 +1,55 @@
+﻿@model WebPets.Models.Pets
+
+@{ 
+    ViewData["Title"] = "Delete";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div>
+    <h4>Pets</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DonoNome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DonoNome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDePet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TipoDePet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Idade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeRegistro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataDeRegistro)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type ="hidden" asp-for="Id"/>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

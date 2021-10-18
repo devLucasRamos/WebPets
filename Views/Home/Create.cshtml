@@ -3,7 +3,7 @@
 @{ ViewData["Title"] = "Create";
 }
 
-<h2>ViewData["Title"]</h2>
+<h2>@ViewData["Title"]</h2>
 
 <h4>Pets</h4>
 <hr />
@@ -31,7 +31,7 @@
                 <input asp-for="Cor" class="form-control" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default"/>
+                <input type="submit" value="Create" class="btn btn-primary mt-2" />
             </div>
         </form>
     </div>

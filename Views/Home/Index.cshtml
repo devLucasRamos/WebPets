@@ -55,6 +55,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => pets.DataDeRegistro)
                 </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@pets.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@pets.Id">Details</a>
+                    <a asp-action="Delete" asp-route-id="@pets.Id">Delete</a>
+                </td>
             </tr>
         }
     </tbody>
